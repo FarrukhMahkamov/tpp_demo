@@ -20,7 +20,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $cateogires = Category::where('parent_category_id', null)->latest()->get();
+        $cateogires = Category::tree()->get()->toTree();
 
         return CategoryResource::collection($cateogires);
     }
