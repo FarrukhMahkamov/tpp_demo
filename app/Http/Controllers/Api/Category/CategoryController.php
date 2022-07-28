@@ -20,7 +20,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $cateogires = Category::latest()->get();
+        $cateogires = Category::where('parent_category_id', null)->latest()->get();
 
         return CategoryResource::collection($cateogires);
     }
@@ -32,7 +32,7 @@ class CategoryController extends Controller
      *    "id" : 12,
      *    "category_name : "Test Category"
      *    "category_slug" : "test-category",
-     *    "parent_cateogry_id" : 1,
+     *    "parent_category_id" : 1,
      *    "created_at" : 2022-07-28 5:49 PM,
      *    "updated_at" : 2022-07-28 5:49 PM,
      *    "sub_categories" : null,
@@ -64,19 +64,17 @@ class CategoryController extends Controller
      *    "sub_categories" : null,
      * }
      */
-    public function update(CategoryRequest $request, $id)
+    public function update(CategoryRequest $request, Category $category)
     {   
-        $category = Category::findOrFail($id);
-
         $category->update([
             'category_name' => $request->input('category_name'),
             'category_slug' => Str::slug($request->input('category_name')),
             'parent_category_id' => $request->parent_category_id,
         ]);
 
-        $updatedData = new CategoryResource($category);
+        $category = new CategoryResource($category);
 
-        return $this->updatedMessage($updatedData);
+        return $this->updatedMessage($category);
     }
 
     /**
