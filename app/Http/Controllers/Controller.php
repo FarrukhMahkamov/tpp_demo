@@ -26,4 +26,11 @@ class Controller extends BaseController
             'data' => $data
         ], 201);
     }
+
+    protected function deletedMessage()
+    {
+        return response()->json([
+            'message' => "Data deleted Successfully"
+        ], 204);
+    }
 }

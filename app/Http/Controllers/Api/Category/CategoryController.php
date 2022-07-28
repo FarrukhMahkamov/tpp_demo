@@ -28,7 +28,7 @@ class CategoryController extends Controller
     /**
      * Yangi categoria joylash.
      *
-     * @response {
+     * @response data : {
      *    "id" : 12,
      *    "category_name : "Test Category"
      *    "category_slug" : "test-category",
@@ -52,11 +52,11 @@ class CategoryController extends Controller
     }
 
     /**
-     * Yangi categoria joylash.
+     * Mavjud categoriani o'zgartirish joylash.
      *
-     * @response {
+     * @response  data : {
      *     "id" : 12,
-     *    "category_name : "Updated Category"
+     *    "category_name" : "Updated Category"
      *    "category_slug" : "updated-category",
      *    "parent_category_id" : 1,
      *    "created_at" : 2022-07-28 5:49 PM,
@@ -87,5 +87,7 @@ class CategoryController extends Controller
         $category = Category::findOrFail($id);
 
         $category->delete();
+
+        return $this->deletedMessage();
     }
 }

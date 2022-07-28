@@ -25,6 +25,6 @@ Route::prefix('v1')->group(function () {
         Route::get('categories', 'index');
         Route::post('categories', 'store');
         Route::put('categories/{id}', 'update');
-        Route::delete('cateogies/{id}', 'delete');
+        Route::delete('categories/{id}', 'delete');
     });
 });
