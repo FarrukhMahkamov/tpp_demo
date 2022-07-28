@@ -16,6 +16,7 @@
         "knuckleswtf/scribe": "^3.35",
         "laravel/pint": "^1.1",
         "laravel/sail": "^1.0.1",
+        "laravel/telescope": "^4.9",
         "mockery/mockery": "^1.4.4",
         "nunomaduro/collision": "^6.1",
         "phpunit/phpunit": "^9.5.10",

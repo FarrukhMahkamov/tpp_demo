@@ -25,8 +25,8 @@ class CategoryRequest extends FormRequest
     {
         return [
             'category_name' => 'required|min:3|max:255|string|unique:categories,category_name,'.$this->id,
-            'category_slug' => 'string|min:3|max:255|unique:categories,category_slug'.$this->id,
-            'parent_cateogry_id' => 'nullable|exists:categories:id',
+            'category_slug' => 'min:3|max:255|unique:categories,category_slug'.$this->id,
+            'parent_category_id' => 'nullable|exists:categories,id',
         ];
     }
 }

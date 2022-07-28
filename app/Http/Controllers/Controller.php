@@ -10,4 +10,20 @@ use Illuminate\Routing\Controller as BaseController;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
+    protected function updatedMessage($data)
+    {
+        return response()->json([
+            'message' => 'Updated Successfully',
+            'data' => $data
+        ], 200);
+    } 
+
+    protected function storedMessage($data)
+    {
+        return response()->json([
+            'message' => "New data stored successfully",
+            'data' => $data
+        ], 201);
+    }
 }
