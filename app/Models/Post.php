@@ -28,5 +28,10 @@ class Post extends Model
     {
         return $this->belongsTo(Category::class);
     }
+
+    public function activeCategory()
+    {
+        return $this->belongsTo(ActiveCategory::class);
+    }
     
 }

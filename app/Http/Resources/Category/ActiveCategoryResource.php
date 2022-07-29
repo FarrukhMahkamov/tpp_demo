@@ -14,6 +14,13 @@ class ActiveCategoryResource extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'id' => $this->id,
+            'category_name' => $this->category_name,
+            'category_slug' => $this->category_slug,
+            'is_visable' => $this->is_visable,
+            'create_at' => date_format($this->created_at, 'Y:m:d H:i:s'),
+            'updated_at' => date_format($this->updated_at, 'Y:m:d H:i:s')
+        ]; 
     }
 }
