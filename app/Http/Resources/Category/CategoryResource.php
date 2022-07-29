@@ -19,6 +19,7 @@ class CategoryResource extends JsonResource
             'category_name' => $this->category_name,
             'category_slug' => $this->category_slug,
             'parent_category_id' => $this->parent_category_id ?? null,
+            'is_visable' => $this->is_visable,
             'created_at' => date_format($this->created_at, 'Y-m-d H:i:s'),
             'updated_at' => date_format($this->updated_at, 'Y-m-d H:i:s'),
             'sub_categories' => CategoryResource::collection($this->children),

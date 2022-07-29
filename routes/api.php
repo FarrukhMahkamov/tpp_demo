@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\Category\CategoryController;
+use App\Http\Controllers\Api\Post\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,7 +25,13 @@ Route::prefix('v1')->group(function () {
     ->group(function () {
         Route::get('categories', 'index');
         Route::post('categories', 'store');
+        Route::get('categories/{id}', 'show');
         Route::put('categories/{category}', 'update');
-        Route::delete('categories/{id}', 'delete');
+        Route::delete('categories/{category}', 'delete');
+    });
+
+    Route::controller(PostController::class)
+    ->group(function() {
+        Route::post('posts', 'store');
     });
 });

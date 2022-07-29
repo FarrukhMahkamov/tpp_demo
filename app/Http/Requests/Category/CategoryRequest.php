@@ -24,8 +24,10 @@ class CategoryRequest extends FormRequest
     public function rules()
     {
         return [
-            'category_name' => 'required|min:3|max:255|string|unique:categories,category_name,',
-            'category_slug' => 'min:3|max:255|unique:categories,category_slug',
+            'category_name.uz' => 'required|min:3|max:255|string',
+            'category_name.en' => 'required|min:3|max:255|string',
+            'category_name.ru' => 'required|min:3|max:255|string',
+            'category_name.уз' => 'required|min:3|max:255|string',
             'parent_category_id' => 'nullable|exists:categories,id',
         ];
     }
