@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\Post\PostController;
 use App\Http\Controllers\Api\Category\CategoryController;
 use App\Http\Controllers\Api\Category\ActiveCategoryController;
 use App\Http\Controllers\Api\Crousel\CarouselController;
+use App\Http\Controllers\Api\Other\GovermentSiteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,5 +55,15 @@ Route::prefix('v1')->group(function () {
         Route::post('carousels', 'store');
         Route::put('carousels/{id}', 'update');
         Route::delete('carousels/{id}', 'destroy');
+        Route::post('carousels/image/upload', 'uploadImage');
     });
+
+    Route::controller(GovermentSiteController::class)
+    ->group(function () {
+        Route::get('goverment-sites', 'index'); 
+        Route::post('goverment-sites', 'store');
+        Route::put('goverment-sites/{id}', 'update');
+        Route::delete('goverment-sites/{id}', 'destroy');
+        Route::post('goverment-sites/image/upload', 'uploadImage');
+    })
 });

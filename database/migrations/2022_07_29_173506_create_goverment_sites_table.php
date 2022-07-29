@@ -15,6 +15,9 @@ return new class extends Migration
     {
         Schema::create('goverment_sites', function (Blueprint $table) {
             $table->id();
+            $table->json('goverment_site_title');
+            $table->text('goverment_site_link');
+            $table->text('goverment_site_file')->nullable();
             $table->timestamps();
         });
     }

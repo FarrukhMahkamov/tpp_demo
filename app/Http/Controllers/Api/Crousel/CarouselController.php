@@ -85,7 +85,7 @@ class CarouselController extends Controller
     /**
      * Rasm joylash. Sizga kerakli bo'lgan rasmni joylab jo'natish tugmasini
      * bosganingizdan so'ng sizga rasmni serverga saqlangan nomini qayataradi
-     * "carousel_imagega" shu qaytgan stringni qo'yib berishingiz kerak.
+     * "carousel_image" ga shu qaytgan stringni qo'yib berishingiz kerak.
      */
     public function uploadImage(ImageRequest $request)
     {
