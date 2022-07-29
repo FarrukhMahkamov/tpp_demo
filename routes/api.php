@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\Post\PostController;
 use App\Http\Controllers\Api\Category\CategoryController;
 use App\Http\Controllers\Api\Category\ActiveCategoryController;
+use App\Http\Controllers\Crousel\CarouselController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,5 +46,13 @@ Route::prefix('v1')->group(function () {
         Route::get('active-categories/{activeCategory:category_slug}', 'show');
         Route::put('active-categories/{activeCategory:category_slug}', 'update');
         Route::delete('active-categories/{activeCategory:category_slug}', 'destroy');
+    });
+
+    Route::controller(CarouselController::class)
+    ->group(function() {
+        Route::get('carousels', 'index'); 
+        Route::post('carousels', 'store');
+        Route::put('carousels/{id}', 'update');
+        Route::delete('carousels/{id}', 'destroy');
     });
 });
