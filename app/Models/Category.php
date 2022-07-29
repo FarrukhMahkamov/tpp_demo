@@ -2,11 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Staudenmeir\LaravelAdjacencyList\Eloquent\HasRecursiveRelationships;
+use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
-
+use Staudenmeir\LaravelAdjacencyList\Eloquent\HasRecursiveRelationships;
 
 class Category extends Model
 {
@@ -14,17 +13,17 @@ class Category extends Model
     use HasRecursiveRelationships;
     use HasTranslations;
 
-    public $translatable  = [
+    public $translatable = [
         'category_name',
     ];
-    
+
     protected $fillable = [
         'category_name',
         'category_slug',
         'is_visable',
         'parent_category_id',
     ];
-    
+
     public function scopeVisable($query)
     {
         $query->where('is_visable', true);

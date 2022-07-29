@@ -10,12 +10,13 @@ class ActiveCategory extends Model
     use HasFactory;
 
     public $translatable = [
-        'category_name'
+        'category_name',
     ];
+
     protected $fillable = [
         'category_name',
         'category_slug',
-        'is_visable'
+        'is_visable',
     ];
 
     public function post()

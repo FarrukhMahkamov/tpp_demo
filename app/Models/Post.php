@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Post extends Model
 {
@@ -15,15 +15,15 @@ class Post extends Model
         'post_title',
         'post_body',
     ];
-    
+
     protected $fillable = [
         'post_title',
         'post_body',
         'category_id',
         'post_slug',
-        'is_visable'
+        'is_visable',
     ];
-    
+
     public function category()
     {
         return $this->belongsTo(Category::class);
@@ -33,5 +33,4 @@ class Post extends Model
     {
         return $this->belongsTo(ActiveCategory::class);
     }
-    
 }

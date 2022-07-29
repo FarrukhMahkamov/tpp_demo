@@ -7,7 +7,6 @@ use App\Http\Requests\Category\ActiveCategoryRequest;
 use App\Http\Resources\Category\ActiveCategoryResource;
 use App\Http\Resources\Post\PostResource;
 use App\Models\ActiveCategory;
-use Illuminate\Http\Request;
 
 class ActiveCategoryController extends Controller
 {
@@ -30,9 +29,9 @@ class ActiveCategoryController extends Controller
                 'uz' => $request->input('category_name'),
                 'уз' => $request->input('category_name'),
                 'ru' => $request->input('category_name'),
-                'en' => $request->input('category_name')
+                'en' => $request->input('category_name'),
             ],
-            'category_slug' => $request->input('category_name.uz')
+            'category_slug' => $request->input('category_name.uz'),
         ]);
 
         $storedData = new ActiveCategoryResource($activeCategory);
@@ -46,7 +45,7 @@ class ActiveCategoryController extends Controller
             'uz' => $request->input('category_name'),
             'уз' => $request->input('category_name'),
             'ru' => $request->input('category_name'),
-            'en' => $request->input('category_name')
+            'en' => $request->input('category_name'),
         ]);
 
         $updatedData = new ActiveCategoryResource($activeCategory);
@@ -54,12 +53,10 @@ class ActiveCategoryController extends Controller
         return $this->updatedMessage($updatedData);
     }
 
-
     public function destroy(ActiveCategory $activeCategory)
     {
         $activeCategory->delete();
 
         return $this->deletedMessage();
     }
-    
 }

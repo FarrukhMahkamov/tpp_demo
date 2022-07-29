@@ -1,9 +1,9 @@
 <?php
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\Category\CategoryController;
 use App\Http\Controllers\Api\Post\PostController;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,7 +31,7 @@ Route::prefix('v1')->group(function () {
     });
 
     Route::controller(PostController::class)
-    ->group(function() {
+    ->group(function () {
         Route::post('posts', 'store');
     });
 });

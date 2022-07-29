@@ -15,22 +15,22 @@ class Controller extends BaseController
     {
         return response()->json([
             'message' => 'Updated Successfully',
-            'data' => $data
+            'data' => $data,
         ], 200);
-    } 
+    }
 
     protected function storedMessage($data)
     {
         return response()->json([
-            'message' => "New data stored successfully",
-            'data' => $data
+            'message' => 'New data stored successfully',
+            'data' => $data,
         ], 201);
     }
 
     protected function deletedMessage()
     {
         return response()->json([
-            'message' => "Data deleted Successfully"
+            'message' => 'Data deleted Successfully',
         ], 204);
     }
 }
