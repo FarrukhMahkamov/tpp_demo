@@ -10,7 +10,7 @@ use App\Http\Requests\Category\ActiveCategoryRequest;
 use App\Http\Resources\Category\ActiveCategoryResource;
 
 /**
- *  @group Categorialar
+ *  @group CATEGORIALAR
  * 
  * Categorialar uchun API
  */

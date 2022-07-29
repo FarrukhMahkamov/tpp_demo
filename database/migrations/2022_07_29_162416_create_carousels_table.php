@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->json('carousel_title');
             $table->integer('carousel_number');
-            $table->text('carousel_file');
+            $table->text('carousel_file')->nullable();
             $table->text('carousel_link');
             $table->timestamps();
         });

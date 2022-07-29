@@ -10,7 +10,7 @@ use App\Models\Category;
 use Illuminate\Support\Str;
 
 /**
- * @group CATEGORIALAR
+ * @group MENULAR
  *
  * Categorial uchun API
  */
@@ -26,10 +26,8 @@ class CategoryController extends Controller
         return CategoryResource::collection($cateogires);
     }
 
-    public function show($id)
+    public function show(Category $category)
     {
-        $category = Category::findOrFail($id);
-
         return PostResource::collection($category->post);
     }
 

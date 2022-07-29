@@ -8,8 +8,16 @@ use App\Http\Resources\Post\PostResource;
 use App\Models\Post;
 use Illuminate\Support\Str;
 
+/**
+ *  @group POSTLAR
+ * 
+ * Postlar uchun api
+ */
 class PostController extends Controller
-{
+{   
+    /**
+     * Yangi static post joylash
+     */
     public function storeStaticPost(PostRequest $request)
     {
         $post = Post::create([
@@ -34,6 +42,9 @@ class PostController extends Controller
         return $this->storedMessage($data);
     }
 
+    /**
+     * Yangi active post joylash
+     */
     public function storeActivePost(PostRequest $request)
     {
         $post = Post::create([
@@ -58,6 +69,9 @@ class PostController extends Controller
         return $this->storedMessage($data);
     }
 
+    /**
+     * Barcha active postlar
+     */
     public function allActivePosts()
     {
         return PostResource::collection(Post::where('active_category_id', !null)->latest()->get());

@@ -28,7 +28,7 @@ Route::prefix('v1')->group(function () {
     ->group(function () {
         Route::get('categories', 'index');
         Route::post('categories', 'store');
-        Route::get('categories/{id}', 'show');
+        Route::get('categories/{category:category_slug}', 'show');
         Route::put('categories/{category:category_slug}', 'update');
         Route::delete('categories/{category}', 'delete');
     });

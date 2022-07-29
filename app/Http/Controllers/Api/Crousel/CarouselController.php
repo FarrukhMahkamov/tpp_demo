@@ -33,10 +33,10 @@ class CarouselController extends Controller
     {
         $carousel = Carousel::create([
             'carousel_title' => [
-                'en' => $request->input('carousel_title'),
-                'uz' => $request->input('carousel_title'),
-                'ru' => $request->input('carousel_title'),
-                'уз' => $request->input('carousel_title'),
+                'en' => $request->input('carousel_title.en'),
+                'uz' => $request->input('carousel_title.uz'),
+                'ru' => $request->input('carousel_title.ru'),
+                'уз' => $request->input('carousel_title.uz'),
             ],
             'carousel_link' => $request->input('carousel_link'),
             'carousel_number' => $request->input('carousel_number'),
@@ -51,16 +51,16 @@ class CarouselController extends Controller
     /**
      * Ma'lum bir carouselni ozgartirish
      */
-    public function update(Request $request, $id) 
+    public function update(CarouselRequest $request, $id) 
     {
         $carousel = Carousel::findOrFail($id);
 
         $carousel->update([
             'carousel_title' => [
-                'en' => $request->input('carousel_title'),
-                'uz' => $request->input('carousel_title'),
-                'ru' => $request->input('carousel_title'),
-                'уз' => $request->input('carousel_title'),
+                'en' => $request->input('carousel_title.en'),
+                'uz' => $request->input('carousel_title.uz'),
+                'ru' => $request->input('carousel_title.ru'),
+                'уз' => $request->input('carousel_title.уз'),
             ],
             'carousel_link' => $request->input('carousel_link'),
             'carousel_number' => $request->input('carousel_number'),
