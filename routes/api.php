@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\Post\PostController;
 use App\Http\Controllers\Api\Category\CategoryController;
 use App\Http\Controllers\Api\Category\ActiveCategoryController;
-use App\Http\Controllers\Crousel\CarouselController;
+use App\Http\Controllers\Api\Crousel\CarouselController;
 
 /*
 |--------------------------------------------------------------------------
