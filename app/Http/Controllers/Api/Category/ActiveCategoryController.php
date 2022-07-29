@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Api\Category;
 
+use Illuminate\Support\Str;
+use App\Models\ActiveCategory;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\Post\MiniPostResource;
 use App\Http\Requests\Category\ActiveCategoryRequest;
 use App\Http\Resources\Category\ActiveCategoryResource;
-use App\Http\Resources\Post\MiniPostResource;
-use App\Models\ActiveCategory;
 
 /**
  *  @group Categorialar
@@ -30,7 +31,7 @@ class ActiveCategoryController extends Controller
      */
     public function show(ActiveCategory $activeCategory)
     {
-        return MiniPostResource::collection($activeCategory->post);
+        return MiniPostResource::collection($activeCategory->post->paginate(20));
     }
 
     public function store(ActiveCategoryRequest $request)
@@ -42,7 +43,7 @@ class ActiveCategoryController extends Controller
                 'ru' => $request->input('category_name'),
                 'en' => $request->input('category_name'),
             ],
-            'category_slug' => $request->input('category_name.uz'),
+            'category_slug' => Str::slug($request->input('category_name.uz')),
         ]);
 
         $storedData = new ActiveCategoryResource($activeCategory);
