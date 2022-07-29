@@ -25,9 +25,9 @@ class CategoryRequest extends FormRequest
     {
         return [
             'category_name.uz' => 'required|min:3|max:255|string',
-            'category_name.en' => 'required|min:3|max:255|string',
-            'category_name.ru' => 'required|min:3|max:255|string',
-            'category_name.уз' => 'required|min:3|max:255|string',
+            'category_name.en' => 'nullable|min:3|max:255|string',
+            'category_name.ru' => 'nullable|min:3|max:255|string',
+            'category_name.уз' => 'nullable|min:3|max:255|string',
             'parent_category_id' => 'nullable|exists:categories,id',
         ];
     }

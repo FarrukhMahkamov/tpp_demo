@@ -29,10 +29,10 @@ class PostRequest extends FormRequest
             'post_title.en' => 'required|min:3|max:255|string',
             'post_title.ru' => 'required|min:3|max:255|string',
 
-            'post_body.uz' => 'required|min:3|max:200000|string',
-            'post_body.уз' => 'required|min:3|max:200000|string',
-            'post_body.en' => 'required|min:3|max:200000|string',
-            'post_body.ru' => 'required|min:3|max:200000|string',
+            'post_body.uz' => 'required|min:3|max:10000|string',
+            'post_body.уз' => 'required|min:3|max:10000|string',
+            'post_body.en' => 'required|min:3|max:10000|string',
+            'post_body.ru' => 'required|min:3|max:10000|string',
 
             'category_id' => 'nullable|exists:categories,id|integer',
             'active_category_id' => 'nullable|exists:active_categories,id|integer',

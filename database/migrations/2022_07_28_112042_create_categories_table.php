@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->json('category_name');
             $table->string('category_slug');
+            $table->unsignedBigInteger('parent_category_id')->nullable();
             $table->boolean('is_visable')->default(true);
             $table->timestamps();
         });

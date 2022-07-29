@@ -29,7 +29,7 @@ Route::prefix('v1')->group(function () {
         Route::get('categories', 'index');
         Route::post('categories', 'store');
         Route::get('categories/{id}', 'show');
-        Route::put('categories/{category}', 'update');
+        Route::put('categories/{category:category_slug}', 'update');
         Route::delete('categories/{category}', 'delete');
     });
 
@@ -66,4 +66,6 @@ Route::prefix('v1')->group(function () {
         Route::delete('goverment-sites/{id}', 'destroy');
         Route::post('goverment-sites/image/upload', 'uploadImage');
     });
+
+
 });
