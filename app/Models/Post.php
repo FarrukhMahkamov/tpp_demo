@@ -22,6 +22,7 @@ class Post extends Model
         'category_id',
         'post_slug',
         'is_visable',
+        'active_category_id'
     ];
 
     public function category()

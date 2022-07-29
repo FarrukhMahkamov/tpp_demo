@@ -5,11 +5,19 @@ namespace App\Http\Controllers\Api\Category;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Category\ActiveCategoryRequest;
 use App\Http\Resources\Category\ActiveCategoryResource;
-use App\Http\Resources\Post\PostResource;
+use App\Http\Resources\Post\MiniPostResource;
 use App\Models\ActiveCategory;
 
+/**
+ *  @group Categorialar
+ * 
+ * Categorialar uchun API
+ */
 class ActiveCategoryController extends Controller
-{
+{   
+    /**
+     * Barcha categorial ro'yhati
+     */
     public function index()
     {
         $activeCategories = ActiveCategory::latest()->get();
@@ -17,9 +25,12 @@ class ActiveCategoryController extends Controller
         return ActiveCategoryResource::collection($activeCategories);
     }
 
+    /**
+     * Malum bir categoriaga tegishli bolgan postlarni chiqarish
+     */
     public function show(ActiveCategory $activeCategory)
     {
-        return PostResource::collection($activeCategory->post);
+        return MiniPostResource::collection($activeCategory->post);
     }
 
     public function store(ActiveCategoryRequest $request)
@@ -39,6 +50,9 @@ class ActiveCategoryController extends Controller
         return $this->storedMessage($storedData);
     }
 
+    /**
+     * Ma'lum bir categoriani tahrirlash
+     */
     public function update(ActiveCategory $activeCategory, ActiveCategoryRequest $request)
     {
         $activeCategory->update([
@@ -53,6 +67,9 @@ class ActiveCategoryController extends Controller
         return $this->updatedMessage($updatedData);
     }
 
+    /**
+     * Ma'lum bir categoriani o'zgartirish
+     */
     public function destroy(ActiveCategory $activeCategory)
     {
         $activeCategory->delete();

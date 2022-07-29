@@ -20,6 +20,7 @@ return new class extends Migration
             $table->boolean('is_visable')->default(false);
             $table->string('post_slug')->nullable();
             $table->foreignId('category_id')->nullable();
+            $table->foreignId('active_category_id')->nullable();
             $table->timestamps();
         });
     }

@@ -10,7 +10,7 @@ use Illuminate\Support\Str;
 
 class PostController extends Controller
 {
-    public function store(PostRequest $request)
+    public function storeStaticPost(PostRequest $request)
     {
         $post = Post::create([
             'post_title' => [
@@ -32,5 +32,34 @@ class PostController extends Controller
         $data = new PostResource($post);
 
         return $this->storedMessage($data);
+    }
+
+    public function storeActivePost(PostRequest $request)
+    {
+        $post = Post::create([
+            'post_title' => [
+                'en' => $request->input('post_title'),
+                'ru' => $request->input('post_title'),
+                'uz' => $request->input('post_title'),
+                'уз' => $request->input('post_title'),
+            ],
+            'post_body' => [
+                'en' => $request->input('post_body'),
+                'ru' => $request->input('post_body'),
+                'uz' => $request->input('post_body'),
+                'уз' => $request->input('post_body'),
+            ],
+            'active_category_id' => $request->input('active_category_id'),
+            'post_slug' => Str::slug('slug oif the'),
+        ]);
+
+        $data = new PostResource($post);
+
+        return $this->storedMessage($data);
+    }
+
+    public function allActivePosts()
+    {
+        return PostResource::collection(Post::where('active_category_id', !null)->latest()->get());
     }
 }

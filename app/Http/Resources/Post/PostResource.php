@@ -20,7 +20,7 @@ class PostResource extends JsonResource
             'post_body' => $this->post_body,
             'post_slug' => $this->post_slug,
             'category_id' => $this->category_id,
-            'category_slug' => $this->category->category_slu,
+            'category_slug' => $this->activeCategory->category_slug,
             'created_at' => date_format($this->created_at, 'Y:m:d H:i:s'),
             'updated_at' => date_format($this->updated_at, 'Y:m:d H:i:s'),
         ];

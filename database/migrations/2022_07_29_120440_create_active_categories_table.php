@@ -15,6 +15,9 @@ return new class extends Migration
     {
         Schema::create('active_categories', function (Blueprint $table) {
             $table->id();
+            $table->json('category_name');
+            $table->string('category_slug');
+            $table->boolean('is_visable')->default(false);
             $table->timestamps();
         });
     }

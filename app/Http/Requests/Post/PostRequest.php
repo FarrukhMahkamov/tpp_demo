@@ -35,6 +35,7 @@ class PostRequest extends FormRequest
             'post_body.ru' => 'required|min:3|max:200000|string',
 
             'category_id' => 'nullable|exists:categories,id|integer',
+            'active_category_id' => 'nullable|exists:active_categories,id|integer',
         ];
     }
 }

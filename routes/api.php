@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\Api\Category\CategoryController;
-use App\Http\Controllers\Api\Post\PostController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\Post\PostController;
+use App\Http\Controllers\Api\Category\CategoryController;
+use App\Http\Controllers\Api\Category\ActiveCategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +33,17 @@ Route::prefix('v1')->group(function () {
 
     Route::controller(PostController::class)
     ->group(function () {
-        Route::post('posts', 'store');
+        Route::post('posts-static', 'storeStaticPost');
+        Route::post('posts-active', 'storeActivePost');
+        Route::get('all-active-posts', 'allActivePosts');
+    });
+
+    Route::controller(ActiveCategoryController::class)
+    ->group(function() {
+        Route::get('active-categories', 'index');
+        Route::post('active-categories', 'store');
+        Route::get('active-categories/{activeCategory:category_slug}', 'show');
+        Route::put('active-categories/{activeCategory:category_slug}', 'update');
+        Route::delete('active-categories/{activeCategory:category_slug}', 'destroy');
     });
 });
