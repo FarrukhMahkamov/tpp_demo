@@ -65,5 +65,5 @@ Route::prefix('v1')->group(function () {
         Route::put('goverment-sites/{id}', 'update');
         Route::delete('goverment-sites/{id}', 'destroy');
         Route::post('goverment-sites/image/upload', 'uploadImage');
-    })
+    });
 });
