@@ -69,7 +69,7 @@ class ActiveCategoryController extends Controller
     }
 
     /**
-     * Ma'lum bir categoriani o'zgartirish
+     * Ma'lum bir categoriani o'chirish
      */
     public function destroy(ActiveCategory $activeCategory)
     {
@@ -77,4 +77,5 @@ class ActiveCategoryController extends Controller
 
         return $this->deletedMessage();
     }
+
 }

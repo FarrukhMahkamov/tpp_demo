@@ -15,6 +15,16 @@ use Illuminate\Support\Str;
  */
 class PostController extends Controller
 {   
+
+    /**
+     * Barcha active postlar
+     */
+    public function allActivePosts()
+    {
+        return PostResource::collection(Post::where('active_category_id', !null)->latest()->get());
+    }
+
+
     /**
      * Yangi static post joylash
      */
@@ -34,7 +44,7 @@ class PostController extends Controller
                 'уз' => $request->input('post_body'),
             ],
             'category_id' => $request->input('category_id'),
-            'post_slug' => Str::slug('slug oif the'),
+            'post_slug' => Str::slug($request->input('post_title.uz')),
         ]);
 
         $data = new PostResource($post);
@@ -61,7 +71,7 @@ class PostController extends Controller
                 'уз' => $request->input('post_body'),
             ],
             'active_category_id' => $request->input('active_category_id'),
-            'post_slug' => Str::slug('slug oif the'),
+            'post_slug' => Str::slug($request->input('post_title.uz')),
         ]);
 
         $data = new PostResource($post);
@@ -70,10 +80,54 @@ class PostController extends Controller
     }
 
     /**
-     * Barcha active postlar
+     * Mavjud postni o'zgartirish
      */
-    public function allActivePosts()
+    public function updatePost(PostRequest $request, Post $post)
     {
-        return PostResource::collection(Post::where('active_category_id', !null)->latest()->get());
+        $post->update([
+            'post_title' => [
+                'en' => $request->input('post_title'),
+                'ru' => $request->input('post_title'),
+                'uz' => $request->input('post_title'),
+                'уз' => $request->input('post_title'),
+            ],
+            'post_body' => [
+                'en' => $request->input('post_body'),
+                'ru' => $request->input('post_body'),
+                'uz' => $request->input('post_body'),
+                'уз' => $request->input('post_body'),
+            ],
+            'active_category_id' => $request->input('active_category_id'),
+            'category_id' => $request->input('category_id'),
+            'post_slug' => Str::slug($request->input('post_title.uz')),
+        ]);
+    }
+
+    /**
+     * Postni toliq holda o'qish
+     */
+    public function showPost(Post $post)
+    {
+        return new PostResource($post);
+    }
+
+     /**
+     * Visable statusni true qilish
+     */
+    public function makeVisable(Post $post)
+    {
+        $post->update([
+            'is_visable' => true
+        ]);
+    }
+
+    /**
+     * Visable statusni false qilish
+     */
+    public function makeUnVisable(Post $post)
+    {
+        $post->update([
+            'is_visable' => false
+        ]);
     }
 }

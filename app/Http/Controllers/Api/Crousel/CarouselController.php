@@ -33,10 +33,10 @@ class CarouselController extends Controller
     {
         $carousel = Carousel::create([
             'carousel_title' => [
-                'en' => $request->input('carousel_title.en'),
-                'uz' => $request->input('carousel_title.uz'),
-                'ru' => $request->input('carousel_title.ru'),
-                'уз' => $request->input('carousel_title.uz'),
+                'en' => $request->input('carousel_title'),
+                'uz' => $request->input('carousel_title'),
+                'ru' => $request->input('carousel_title'),
+                'уз' => $request->input('carousel_title'),
             ],
             'carousel_link' => $request->input('carousel_link'),
             'carousel_number' => $request->input('carousel_number'),
@@ -57,10 +57,10 @@ class CarouselController extends Controller
 
         $carousel->update([
             'carousel_title' => [
-                'en' => $request->input('carousel_title.en'),
-                'uz' => $request->input('carousel_title.uz'),
-                'ru' => $request->input('carousel_title.ru'),
-                'уз' => $request->input('carousel_title.уз'),
+                'en' => $request->input('carousel_title'),
+                'uz' => $request->input('carousel_title'),
+                'ru' => $request->input('carousel_title'),
+                'уз' => $request->input('carousel_title'),
             ],
             'carousel_link' => $request->input('carousel_link'),
             'carousel_number' => $request->input('carousel_number'),

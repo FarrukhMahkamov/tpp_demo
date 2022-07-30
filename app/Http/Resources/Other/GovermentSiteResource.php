@@ -16,7 +16,7 @@ class GovermentSiteResource extends JsonResource
     {
         return [
             "id" => $this->id,
-            "goverment_site_title" => $this->govermnet_site_title,
+            "goverment_site_title" => $this->goverment_site_title,
             "goverment_site_link" => $this->goverment_site_link,
             "goverment_site_file" => $this->goverment_site_file,
             'created_at' => date_format($this->created_at, 'Y:m:d H:i:s'),

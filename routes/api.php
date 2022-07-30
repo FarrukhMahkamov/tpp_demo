@@ -37,6 +37,8 @@ Route::prefix('v1')->group(function () {
     ->group(function () {
         Route::post('posts-static', 'storeStaticPost');
         Route::post('posts-active', 'storeActivePost');
+        Route::get('posts/{post:slug}', 'showPost');
+        Route::put('posts/{post:slug}', 'update');
         Route::get('all-active-posts', 'allActivePosts');
     });
 
