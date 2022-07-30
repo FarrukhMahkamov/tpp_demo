@@ -42,6 +42,7 @@ Route::prefix('v1')->group(function () {
         Route::put('posts/visable{post:slug}', 'update');
         Route::put('posts/unvisable{post:slug}', 'update');
         Route::get('all-active-posts', 'allActivePosts');
+        Route::delete('posts/{post:slug}', 'destroy');
     });
 
     Route::controller(ActiveCategoryController::class)
@@ -71,5 +72,5 @@ Route::prefix('v1')->group(function () {
         Route::post('goverment-sites/image/upload', 'uploadImage');
     });
 
-
+    
 });
