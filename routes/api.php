@@ -72,5 +72,4 @@ Route::prefix('v1')->group(function () {
         Route::post('goverment-sites/image/upload', 'uploadImage');
     });
 
-    
 });
