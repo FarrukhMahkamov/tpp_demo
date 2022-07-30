@@ -44,6 +44,8 @@ class PostController extends Controller
                 'уз' => $request->input('post_body'),
             ],
             'category_id' => $request->input('category_id'),
+
+            //we could do this in obsersver
             'post_slug' => Str::slug($request->input('post_title.uz')),
         ]);
 
