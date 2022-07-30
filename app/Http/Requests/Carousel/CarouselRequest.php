@@ -30,7 +30,7 @@ class CarouselRequest extends FormRequest
             'carousel_title.уз' => 'nullable|min:3|max:255|string',
             'carousel_file' => 'nullable',
             'carousel_link' => 'required|min:6|string',
-            'carousel_number' => 'required|integer'
+            'carousel_number' => 'required|integer',
         ];
     }
 }

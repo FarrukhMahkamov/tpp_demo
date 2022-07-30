@@ -15,10 +15,10 @@ class Carousel extends Model
         'carousel_title',
         'carousel_number',
         'carousel_file',
-        'carousel_link'
+        'carousel_link',
     ];
 
     public $translatable = [
-        'carousel_title'
+        'carousel_title',
     ];
 }

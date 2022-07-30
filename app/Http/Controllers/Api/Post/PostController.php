@@ -10,20 +10,18 @@ use Illuminate\Support\Str;
 
 /**
  *  @group POSTLAR
- * 
+ *
  * Postlar uchun api
  */
 class PostController extends Controller
-{   
-
+{
     /**
      * Barcha active postlar
      */
     public function allActivePosts()
     {
-        return PostResource::collection(Post::where('active_category_id', !null)->latest()->get());
+        return PostResource::collection(Post::where('active_category_id', ! null)->latest()->get());
     }
-
 
     /**
      * Yangi static post joylash
@@ -113,13 +111,13 @@ class PostController extends Controller
         return new PostResource($post);
     }
 
-     /**
+    /**
      * Visable statusni true qilish
      */
     public function makeVisable(Post $post)
     {
         $post->update([
-            'is_visable' => true
+            'is_visable' => true,
         ]);
     }
 
@@ -129,7 +127,7 @@ class PostController extends Controller
     public function makeUnVisable(Post $post)
     {
         $post->update([
-            'is_visable' => false
+            'is_visable' => false,
         ]);
     }
 

@@ -1,12 +1,12 @@
 <?php
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\Post\PostController;
-use App\Http\Controllers\Api\Category\CategoryController;
 use App\Http\Controllers\Api\Category\ActiveCategoryController;
+use App\Http\Controllers\Api\Category\CategoryController;
 use App\Http\Controllers\Api\Crousel\CarouselController;
 use App\Http\Controllers\Api\Other\GovermentSiteController;
+use App\Http\Controllers\Api\Post\PostController;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,7 +46,7 @@ Route::prefix('v1')->group(function () {
     });
 
     Route::controller(ActiveCategoryController::class)
-    ->group(function() {
+    ->group(function () {
         Route::get('active-categories', 'index');
         Route::post('active-categories', 'store');
         Route::get('active-categories/{activeCategory:category_slug}', 'show');
@@ -55,8 +55,8 @@ Route::prefix('v1')->group(function () {
     });
 
     Route::controller(CarouselController::class)
-    ->group(function() {
-        Route::get('carousels', 'index'); 
+    ->group(function () {
+        Route::get('carousels', 'index');
         Route::post('carousels', 'store');
         Route::put('carousels/{id}', 'update');
         Route::delete('carousels/{id}', 'destroy');
@@ -65,11 +65,10 @@ Route::prefix('v1')->group(function () {
 
     Route::controller(GovermentSiteController::class)
     ->group(function () {
-        Route::get('goverment-sites', 'index'); 
+        Route::get('goverment-sites', 'index');
         Route::post('goverment-sites', 'store');
         Route::put('goverment-sites/{id}', 'update');
         Route::delete('goverment-sites/{id}', 'destroy');
         Route::post('goverment-sites/image/upload', 'uploadImage');
     });
-
 });

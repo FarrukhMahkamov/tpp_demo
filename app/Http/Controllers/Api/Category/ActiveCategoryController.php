@@ -2,20 +2,20 @@
 
 namespace App\Http\Controllers\Api\Category;
 
-use Illuminate\Support\Str;
-use App\Models\ActiveCategory;
 use App\Http\Controllers\Controller;
-use App\Http\Resources\Post\MiniPostResource;
 use App\Http\Requests\Category\ActiveCategoryRequest;
 use App\Http\Resources\Category\ActiveCategoryResource;
+use App\Http\Resources\Post\MiniPostResource;
+use App\Models\ActiveCategory;
+use Illuminate\Support\Str;
 
 /**
  *  @group CATEGORIALAR
- * 
+ *
  * Categorialar uchun API
  */
 class ActiveCategoryController extends Controller
-{   
+{
     /**
      * Barcha categorial ro'yhati
      */
@@ -77,5 +77,4 @@ class ActiveCategoryController extends Controller
 
         return $this->deletedMessage();
     }
-
 }

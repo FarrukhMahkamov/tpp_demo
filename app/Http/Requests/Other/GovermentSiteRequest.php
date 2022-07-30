@@ -25,12 +25,12 @@ class GovermentSiteRequest extends FormRequest
     {
         return [
             'goverment_site_title.uz' => 'required|min:3|max:255|string',
-            'goverment_site_title.en' => 'required|min:3|max:255|string', 
-            'goverment_site_title.ru' => 'required|min:3|max:255|string', 
-            'goverment_site_title.уз' => 'required|min:3|max:255|string', 
-             
+            'goverment_site_title.en' => 'required|min:3|max:255|string',
+            'goverment_site_title.ru' => 'required|min:3|max:255|string',
+            'goverment_site_title.уз' => 'required|min:3|max:255|string',
+
             'goverment_site_link' => 'required|min:6',
-            'goverment_site_file' => 'nullable'
+            'goverment_site_file' => 'nullable',
         ];
     }
 }

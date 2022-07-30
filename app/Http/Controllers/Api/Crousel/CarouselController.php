@@ -7,15 +7,14 @@ use App\Http\Requests\Carousel\CarouselRequest;
 use App\Http\Requests\File\ImageRequest;
 use App\Http\Resources\Carousel\CarouselResource;
 use App\Models\Carousel;
-use Illuminate\Http\Request;
 
 /**
  * @group CAROUSEL
- * 
+ *
  * Carousel uchun api
  */
 class CarouselController extends Controller
-{   
+{
     /**
      * Barhca carousellar ro'yhati
      */
@@ -40,7 +39,7 @@ class CarouselController extends Controller
             ],
             'carousel_link' => $request->input('carousel_link'),
             'carousel_number' => $request->input('carousel_number'),
-            'carousel_file' => $request->input('carousel_file')
+            'carousel_file' => $request->input('carousel_file'),
         ]);
 
         $storedCarousel = new CarouselResource($carousel);
@@ -51,7 +50,7 @@ class CarouselController extends Controller
     /**
      * Ma'lum bir carouselni ozgartirish
      */
-    public function update(CarouselRequest $request, $id) 
+    public function update(CarouselRequest $request, $id)
     {
         $carousel = Carousel::findOrFail($id);
 
@@ -64,7 +63,7 @@ class CarouselController extends Controller
             ],
             'carousel_link' => $request->input('carousel_link'),
             'carousel_number' => $request->input('carousel_number'),
-            'carousel_file' => $request->input('carousel_file')
+            'carousel_file' => $request->input('carousel_file'),
         ]);
 
         $updatedCarousel = new CarouselResource($carousel);

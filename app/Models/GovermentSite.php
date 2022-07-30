@@ -14,10 +14,10 @@ class GovermentSite extends Model
     protected $fillable = [
         'goverment_site_title',
         'goverment_site_link',
-        'goverment_site_file'
+        'goverment_site_file',
     ];
 
     public $translatable = [
-        'goverment_site_title'
+        'goverment_site_title',
     ];
 }
