@@ -4,6 +4,8 @@ use App\Http\Controllers\Api\Category\ActiveCategoryController;
 use App\Http\Controllers\Api\Category\CategoryController;
 use App\Http\Controllers\Api\Crousel\CarouselController;
 use App\Http\Controllers\Api\Other\GovermentSiteController;
+use App\Http\Controllers\Api\Other\StaticDocumentUploadController;
+use App\Http\Controllers\Api\Other\StaticImageUploadController;
 use App\Http\Controllers\Api\Post\PostController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -70,5 +72,16 @@ Route::prefix('v1')->group(function () {
         Route::put('goverment-sites/{id}', 'update');
         Route::delete('goverment-sites/{id}', 'destroy');
         Route::post('goverment-sites/image/upload', 'uploadImage');
+    });
+
+    Route::controller(StaticImageUploadController::class)
+    ->group(function () {
+        Route::post('global-image-upload', 'imageUpload');
+        Route::delete('glboal-file-delete', 'removeFile');
+    });
+
+    Route::controller(StaticDocumentUploadController::class)
+    ->group(function () {
+        Route::post('global-document-upload', 'documentUpload');
     });
 });
