@@ -39,6 +39,8 @@ Route::prefix('v1')->group(function () {
         Route::post('posts-active', 'storeActivePost');
         Route::get('posts/{post:slug}', 'showPost');
         Route::put('posts/{post:slug}', 'update');
+        Route::put('posts/visable{post:slug}', 'update');
+        Route::put('posts/unvisable{post:slug}', 'update');
         Route::get('all-active-posts', 'allActivePosts');
     });
 

@@ -132,4 +132,14 @@ class PostController extends Controller
             'is_visable' => false
         ]);
     }
+
+    /**
+     * Mavjud postni o'chirib tashlash
+     */
+    public function destroy(Post $post)
+    {
+        $post->delete();
+
+        return $this->deletedMessage();
+    }
 }
